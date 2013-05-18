@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/stylesheets/ratchet-steroids.css" type="text/css">
+  <script src="/appgyver/cordova.js"></script>
+  <script>
+    function cameraOnSuccess(imageURI) {
+      console.log(imageURI);
+      var image = document.querySelector('img#myImage');
+      image.src = imageURI;
+    }
+
+    function cameraOnFailure(message) {
+      alert("Camera error: " + message);
+    }
+
+    function cameraGetPicture() {
+      navigator.camera.getPicture(cameraOnSuccess, cameraOnFailure, { quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI
+        });
+    }
+  </script>
+</head>
+<body>
+  <a class="button" ontouchstart="cameraGetPicture()">Grab a picture</a><br><br>
+
+  <hr>
+  <img id="myImage" width="304"></img>
+</body>
+</html>
