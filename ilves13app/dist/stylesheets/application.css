@@ -9,3 +9,10 @@ input {
 p {
   margin: 1em 0em;
 }
+
+body {
+  background-image: url('ilves13_taustakuva.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center; 
+}
