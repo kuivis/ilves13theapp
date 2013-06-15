@@ -11,15 +11,88 @@
 
   <script src="/appgyver/cordova.js"></script>
   <script src="/components/steroids-js/steroids.js"></script>
-
+  <script src="/components/jquery/jquery.js"></script>
   <script src="/javascripts/application.js"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+    var storage = window.localStorage;
+    $(document).ready(function(){
+      initTodoList();
+      $("#clearStorage").click(function(){
+        storage.clear();
+        $('li').remove();
+      });
+      $("#alaleiri").change(function() {
+        var alaleiri =  $("#alaleiri").val();
+	var key = 'alaleiri_key';
+	$('#'+key).remove();
+        storage.setItem(key, alaleiri);
+        createListItem(key,alaleiri);
+      });
+      $("#ikakausi").change(function() {
+        var ikakausi =  $("#ikakausi").val();
+	var key = 'ikakausi_key';
+	$('#'+key).remove();
+        storage.setItem(key, ikakausi);
+        createListItem(key, ikakausi);
+      });
+    });
+    
+    function remove_item(key){
+      storage.removeItem(key);
+      $('#'+key).remove();
+    }
+    function add_item() {
+      var d = new Date();
+      var key = d.getTime();
+      var value = $('#new_item').val();
+      storage.setItem(key,value);
+      createListItem(key,value);
+      $("#new_item").val('');
+    }
+    function initTodoList(){
+      for(var i = 0; i < storage.length; i++){
+        var key = storage.key(i);
+        var value = storage.getItem(key);
+        createListItem(key,value);
+      }
+    }  
+    function createListItem(key, value){
+      var html = '<li  data-key="'+key+'" id="'+key+'">'+value+'<button onclick="javascript:remove_item(\''+ key+ '\')" >Delete</button></li>';
+      $("#list").append(html);
+    }
+    </script>
+  
 </head>
 <body>
   <div class="content-padded">
 
     <h1>Ilves13 - The App</h1>
     testihommia
+    <p>
+    <!-- tähän vois vielä tehdä sen toiminnallisuuden että valinta on "selected" kun seuraavan kerran tullaan sivulle -->
+    <select id="alaleiri">
+    <option value=''>Valitse alaleirisi</option>
+    <option value='Risney'>Risney</option>
+    <option value='Warneri'>Warneri</option>
+    <option value='Foksi'>Foksi</option>
+    <option value='Paramauntti'>Paramauntti</option>
+    <option value='Universaali'>Universaali</option>
+    </select> 
+    </p><p>
+    <select id="ikakausi">
+    <option value=''>Valitse ikäkautesi</option>
+    <option value='Tarpoja'>Tarpoja</option>
+    <option value='Seikkailija'>Seikkailija</option>
+    <option value='Vaeltaja'>Vaeltaja</option>
+    </select> 
+    </p>
+    
 
+  <ul id="list"></ul>
+    <br/>
+  <button id="clearStorage">Clear storage</button>
   </div>
+  
 </body>
 </html>
