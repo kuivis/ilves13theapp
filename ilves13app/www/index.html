@@ -22,6 +22,10 @@
         storage.clear();
         $('li').remove();
       });
+	  $("#show_me_the_money").click(function(){
+		window.location = "http://secure-mountain-4794.herokuapp.com/app/" +
+			storage.getItem("alaleiri_key") + "/" + storage.getItem("ikakausi_key");
+	  });
       $("#alaleiri").change(function() {
         var alaleiri =  $("#alaleiri").val();
 	var key = 'alaleiri_key';
@@ -95,6 +99,8 @@
   </div>
   
   <a href="news.html">Syotteeseen!</a>
+  
+  <button id="show_me_the_money">Näytä päivän setit!</button>
   
 </body>
 </html>
