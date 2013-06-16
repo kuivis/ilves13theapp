@@ -11,7 +11,7 @@ steroids.config.name = "Steroids Tutorial"
 #   - localhost URL, starting with http://localhost/ (serves the document locally from the www/ folder, e.g. 'http://localhost/index.html' would serve www/index.html)
 #   - external URL (directly from the internets, e.g. http://www.google.com)
 
-steroids.config.location = "http://localhost/index.html"
+steroids.config.location = "http://localhost/news.html"
 
 # -- Remote hosts: steroids.config.hosts --
 # Defines the hostnames that the application will capture and serve application files from.
@@ -43,21 +43,26 @@ steroids.config.tabBar.enabled = true
 #
 steroids.config.tabBar.tabs = [
    {
-     title: "Tervetuloa!"
-     icon: "icons/pill@2x.png"
+     title: "Uutiset"
+     icon: "icons/telescope@2x.png"
+     location: "http://localhost/news.html"
+   },
+   {
+     title: "Ohjelma"
+     icon: "icons/telescope@2x.png"
      location: "http://localhost/index.html"
    },
    {
      title: "Leirikartta"
-     icon: ""
+     icon: "icons/telescope@2x.png"
      location: "http://localhost/map.html"
    },
    {
-     title: "Ilves www"
-     icon: "icons/telescope@2x.png"
-     location: "http://ilves.hp.partio.fi"
+     title: "Asetukset"
+     icon: "icons/pill@2x.png"
+     location: "http://localhost/index.html"
    }
- ]
+]
 
 # -- Status bar --
 # Sets the visibilty of the status bar on iOS (shows the carrier, clock and battery status)
