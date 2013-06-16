@@ -48,9 +48,9 @@ steroids.config.tabBar.tabs = [
      location: "http://localhost/index.html"
    },
    {
-     title: "Kamera"
+     title: "Leirikartta"
      icon: ""
-     location: "http://localhost/camera.html"
+     location: "http://localhost/map.html"
    },
    {
      title: "Ilves www"
