@@ -61,6 +61,10 @@
       var html = '<li  data-key="'+key+'" id="'+key+'">'+value+'<button onclick="javascript:remove_item(\''+ key+ '\')" >Delete</button></li>';
       $("#list").append(html);
     }
+	function getAddress(){
+		return "http://secure-mountain-4794.herokuapp.com/app/" +
+			storage.getItem("ikakausi_key") + "/" + storage.getItem("alaleiri_key");
+	}
     </script>
   
 </head>
@@ -95,6 +99,8 @@
   </div>
   
   <a href="news.html">Syotteeseen!</a>
+  
+  <a href="javascript:getAddress()">Näytä päivän setit!</a>
   
 </body>
 </html>
