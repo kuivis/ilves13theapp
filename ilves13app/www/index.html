@@ -22,6 +22,10 @@
         storage.clear();
         $('li').remove();
       });
+	  $("#show_me_the_money").click(function(){
+		window.location = "http://secure-mountain-4794.herokuapp.com/app/" +
+			storage.getItem("ikakausi_key") + "/" + storage.getItem("alaleiri_key");
+	  });
       $("#alaleiri").change(function() {
         var alaleiri =  $("#alaleiri").val();
 	var key = 'alaleiri_key';
@@ -61,10 +65,6 @@
       var html = '<li  data-key="'+key+'" id="'+key+'">'+value+'<button onclick="javascript:remove_item(\''+ key+ '\')" >Delete</button></li>';
       $("#list").append(html);
     }
-	function getAddress(){
-		return "http://secure-mountain-4794.herokuapp.com/app/" +
-			storage.getItem("ikakausi_key") + "/" + storage.getItem("alaleiri_key");
-	}
     </script>
   
 </head>
@@ -100,7 +100,7 @@
   
   <a href="news.html">Syotteeseen!</a>
   
-  <a href="javascript:getAddress()">Näytä päivän setit!</a>
+  <button id="show_me_the_money">Näytä päivän setit!</button>
   
 </body>
 </html>
