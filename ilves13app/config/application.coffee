@@ -1,7 +1,7 @@
 # -- Required settings --
 # Name of the application, used as the app name when creating a build
 
-steroids.config.name = "Steroids Tutorial"
+steroids.config.name = "Ilves13 The App"
 
 # -- Location: steroids.config.location --
 # Defines the location of the HTML document that the initial steroids.views.WebView will render (for applications without the tab bar).
@@ -61,6 +61,11 @@ steroids.config.tabBar.tabs = [
      title: "Asetukset"
      icon: "icons/pill@2x.png"
      location: "http://localhost/index.html"
+   },
+   {
+     title: "Twitter"
+     icon: "icons/pill@2x.png"
+     location: "http://localhost/twitter.html"
    }
 ]
 

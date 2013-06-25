@@ -16,3 +16,28 @@ body {
   background-attachment:fixed;
   background-position:center; 
 }
+
+
+/** Tweets Styling **/
+#tweets {
+    list-style:none;
+    padding:10px;
+}
+#tweets li{
+    font-size:12px;
+    overflow: hidden;
+    margin-bottom:20px;
+}
+#tweets li h2{
+    font-size:14px;
+    margin:0;
+}
+.avatar{
+    margin-right:10px;
+}
+#tweets li a, #tweets li span {
+    float:left;
+}
+#tweets li span {
+    width:70%;
+}

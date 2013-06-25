@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>Ilves13 - The App</title>
+
+  <link rel="stylesheet" href="/stylesheets/ratchet-steroids.css" />
+  <link rel="stylesheet" href="/stylesheets/application.css" />
+
+  <script src="/javascripts/onerror.js"></script>
+
+  <script src="/appgyver/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/jquery/jquery.js"></script>
+  <script src="/javascripts/application.js"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+  
+    function getTweets() {
+    var q = "ilves13"
+        rpp = 5,
+        twurl = "https://api.twitter.com/1.1/search.json?q=";
+    $.getJSON(twurl + q + "&count=" + rpp + "&callback=?", function(data){
+        $("#tmpl-tweets").tmpl(data.results).appendTo("#tweets");
+    });
+}
+  </script>
+  
+</head>
+<body>
+  
+  <div class="content-padded">
+
+    <div id="twitter" class="current">
+    <ul id="tweets">
+    </ul>
+    <script id="tmpl-tweets" type="text/x-jquery-tmpl">
+        <li>
+            <a class="avatar" href="#"><img src="${profile_image_url}" alt="${from_user}"></a>
+            <a href="http://twitter.com/${from_user}"><h2>${from_user}</h2></a>
+            <span class="details">${text} </span>
+        </li>
+    </script>
+    
+</div>
+    
+  </div>  
+</body>
+</html>
