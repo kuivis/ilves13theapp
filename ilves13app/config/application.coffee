@@ -29,6 +29,7 @@ steroids.config.location = "http://localhost/news.html"
 
 steroids.config.tabBar.enabled = true
 
+
 # -- Defining tabs via the tab array --
 # An array of tab objects that specify which tabs are created on app startup.
 #
@@ -41,6 +42,7 @@ steroids.config.tabBar.enabled = true
 #   - localhost URL, starting with http://localhost/ (serves the document locally from the www/ folder, e.g. 'http://localhost/index.html' would serve www/index.html)
 #   - external URL (directly from the internets, e.g. http://www.google.com)
 #
+
 steroids.config.tabBar.tabs = [
    {
      title: "Uutiset"
@@ -53,19 +55,19 @@ steroids.config.tabBar.tabs = [
      location: "http://localhost/index.html"
    },
    {
-     title: "Leirikartta"
+     title: "Kartta"
      icon: "icons/telescope@2x.png"
      location: "http://localhost/map.html"
    },
    {
-     title: "Asetukset"
-     icon: "icons/pill@2x.png"
-     location: "http://localhost/index.html"
-   },
-   {
      title: "Twitter"
      icon: "icons/pill@2x.png"
-     location: "http://localhost/twitter.html"
+     location: "http://kuiva.tunk.org/twitterdemo.html"
+   },
+   {
+     title: "Testi"
+     icon: "icons/telescope@2x.png"
+     location: "http://kuiva.tunk.org/ilves_mobi/index2.html"
    }
 ]
 

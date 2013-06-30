@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title>Ilves13 The App</title> 
+    <link rel="stylesheet" type="text/css" href="css/application.css" />
+    <link rel="stylesheet" type="text/css" href="js/jqm/jquery.mobile.css" />
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/jqm/jquery.mobile.js"></script>
+    <script type="text/javascript" src="js/my.js"></script>
+  
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="js/news.js"></script>
+</head>
+ 
+<body> 
+
+<div data-role="page" id="mainPage">
+
+    <div data-role="header">
+        <h1></h1>
+    </div>
+
+    <div data-role="content">  
+		<div id="status"></div>  
+        <ul id="linksList" data-role="listview" data-inset="true"></ul>
+    </div>
+
+    
+</div>
+
+<div data-role="page" id="contentPage">
+
+    <div data-role="header">
+        <a href="#mainPage" data-rel="back">Takaisin</a>
+        <h1></h1>
+    </div>
+
+    <div data-role="content" id="entryText">
+    </div>
+        
+</div>
+</body>
+</html>
