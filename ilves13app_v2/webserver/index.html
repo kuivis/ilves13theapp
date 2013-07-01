@@ -4,22 +4,29 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
-  <link rel="stylesheet" type="text/css" href="css/application.css" />
-  <link rel="stylesheet" type="text/css" href="js/jqm/jquery.mobile.css" />
-  <link rel="stylesheet" type="text/css" href="css/twitter-styles.css" />
   <title>Ilves13TheApp</title>
+  
+  <link rel="stylesheet" type="text/css" href="css/application.css" />
+  <link rel="stylesheet" type="text/css" href="css/twitter-styles.css" />
+  <link rel="stylesheet" type="text/css" href="js/jqm/jquery.mobile.css" />
+  
   <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="js/jqm/jquery.mobile.js"></script>
-  <script type="text/javascript" src="js/my.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+  <!-- Nämä my.js ja index.js ovat mahdollisesti turhia.. tulleet Codiqan phonegap-paketin mukana -->
+  <script type="text/javascript" src="js/my.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  
   <script type="text/javascript" src="js/news.js"></script>
+  <script type="text/javascript" src="js/twitterfeed.js"></script>
+  
+
   
   <!-- cordova.js is served from localhost to ensure the correct version -->
   <script src="http://localhost/appgyver/cordova.js"></script>
   <script src="http://localhost/components/steroids-js/steroids.js"></script>
-  
-  <script type="text/javascript" src="js/index.js"></script>
-  <script type="text/javascript" src="js/twitterfeed.js"></script>
+    
   
 </head>
 <body>
@@ -32,7 +39,7 @@
       </div>
       <div data-role="content">
           <div style="text-align: center;" data-controltype="image">
-              <img style="width: 75%;" src="img/ilves_klappi.png">
+              <img style="width: 75%; max-width: 360px;" src="img/ilves_klappi.png">
           </div>
           <ul data-role="listview" data-divider-theme="b" data-inset="true">
               <li data-theme="c">
@@ -49,7 +56,7 @@
       </div>
   </div>
   <div data-role="page" data-control-title="News" id="news_section" style="background: url('img/ilves13_taustakuva.png') no-repeat">
-      <div data-theme="a" data-role="header">
+      <div data-theme="a" data-role="header" data-position="fixed">
           <a data-role="button" data-transition="slide" href="#index_section" class="ui-btn-left">
               Takaisin
           </a>
@@ -64,7 +71,7 @@
   
   <div data-role="page" id="contentPage" style="background: url('img/ilves13_taustakuva.png');">
 
-    <div data-role="header">
+    <div data-theme="a" data-role="header" data-position="fixed">
         <a href="#news_section" data-rel="back">Takaisin</a>
         <h1></h1>
     </div>
@@ -75,7 +82,7 @@
 </div>
   
   <div data-role="page" data-control-title="twitter" id="twitter_section" style="background: url('img/ilves13_taustakuva.png') no-repeat">
-      <div data-theme="a" data-role="header">
+      <div data-theme="a" data-role="header" data-position="fixed">
           <a data-role="button" data-transition="slide" href="#index_section" class="ui-btn-left">
               Takaisin
           </a>
