@@ -48,13 +48,13 @@ steroids.config.tabBar.enabled = true
 #
 steroids.config.tabBar.tabs = [
    {
-     title: "index_www"
-     icon: "icons/pill@2x.png"
+     title: "Päävalikko"
+     icon: "icons/list@2x.png"
      location: "http://m.ilves13.dy.fi/appgyver/index.html"
    },
    {
-     title: "map_local"
-     icon: "icons/pill@2x.png"
+     title: "Leirikartta"
+     icon: "icons/map@2x.png"
      location: "map.html"
    }
 ]
@@ -75,24 +75,24 @@ steroids.config.tabBar.tabs = [
 # steroids.config.tabBar.tabTitleShadowColor = ""
 # steroids.config.tabBar.selectedTabTintColor = ""
 
-steroids.config.navigationBar.tintColor = "#00aeef"
-steroids.config.navigationBar.titleColor = "#ffffff"
-steroids.config.navigationBar.titleShadowColor = "#000000"
+# steroids.config.navigationBar.tintColor = "#00aeef"
+# steroids.config.navigationBar.titleColor = "#ffffff"
+# steroids.config.navigationBar.titleShadowColor = "#000000"
 
-steroids.config.navigationBar.buttonTintColor = "#363636"
-steroids.config.navigationBar.buttonTitleColor = "#ffffff"
-steroids.config.navigationBar.buttonShadowColor = "#000000"
+# steroids.config.navigationBar.buttonTintColor = "#363636"
+# steroids.config.navigationBar.buttonTitleColor = "#ffffff"
+# steroids.config.navigationBar.buttonShadowColor = "#000000"
 
-#
 # Loading screen color is used by Android only, on the background of loading.png
 
 steroids.config.loadingScreen.tintColor = "#262626"
+
 
 # -- iOS theme --
 # Sets a built-in theme for the navigation bar and tab bar. Valid values are "black" and "default".
 # Default: "default"
 #
-# steroids.config.theme = "default"
+steroids.config.theme = "black"
 
 # -- Status bar --
 # Sets the visibilty of the status bar on iOS (shows the carrier, clock and battery status)

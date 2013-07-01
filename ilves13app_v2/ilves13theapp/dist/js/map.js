@@ -1,4 +1,5 @@
 var overlay;
+
 USGSOverlay.prototype = new google.maps.OverlayView();
 
 function initialize() {
@@ -25,18 +26,17 @@ function initialize() {
 
 
 // markkerin lisäys
-function addMarker(latLng,title,contentString){
+function addMarker(latLng){
   console.log("Entering addMarker()");
   var markerOptions = new google.maps.Marker({
 	map: map,
 	position: latLng,
-	title:title,
+	title:'Olen tässä',
 	clickable:true
 	});
 
   var marker = new google.maps.Marker(markerOptions);
   var infoWindowOptions = {
-   content: contentString,
    position: latLng
   };
 
@@ -149,14 +149,34 @@ function onSuccess(position) {
 
 */
 //var whereAmI = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-var whereAmI = new google.maps.LatLng(61.2035,25.12);
-addMarker(whereAmI, 'Täällä ollaan', 'Tämä on testisijainti.. oikeasti tämä tieto revitään puhelimen gps:llä');
-alert('Sijaintisi juuri ny: ' + position.coords.latitude + ', ' + position.coords.longitude );
+var missaLeiri = new google.maps.LatLng(61.2035,25.12);
+// addMarker(missaLeiri);
+// map.setCenter(whereAmI);
+// alert('Sijaintisi juuri ny: ' + position.coords.latitude + ', ' + position.coords.longitude );
 }
 
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-	alert('code: '    + error.code    + '\n' +
-			'message: ' + error.message + '\n');
+	// alert('code: '    + error.code    + '\n' +  'message: ' + error.message + '\n');
 }
+
+
+steroids.view.navigationBar.show("Leirikartta");
+  	    
+function missaOlen() {
+   var missaoon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+   alert('Sijaintisi juuri ny: ' + position.coords.latitude + ', ' + position.coords.longitude );
+   addMarker(missaoon);
+   map.setCenter(missaoon); 
+}
+
+var rightButton = new steroids.buttons.NavigationBarButton();
+rightButton.title = "Missä olen?";
+rightButton.onTap = function() {
+  missaOlen();
+};
+
+steroids.view.navigationBar.setButtons({right: [rightButton]});
+	
+

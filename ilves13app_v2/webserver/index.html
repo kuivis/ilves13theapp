@@ -26,29 +26,37 @@
   <!-- cordova.js is served from localhost to ensure the correct version -->
   <script src="http://localhost/appgyver/cordova.js"></script>
   <script src="http://localhost/components/steroids-js/steroids.js"></script>
+  <script>
+
+	steroids.view.navigationBar.show("Ilves13");
+  	    
+    function uusLeijeri(urli) {
+	   var nakyma = new steroids.views.WebView( { location: urli } );
+	   steroids.layers.push(nakyma);
+	   steroids.view.navigationBar.show("Valikko");
+	}
+	
+    
+  </script>
     
   
 </head>
 <body>
   <div data-role="page" data-control-title="Home" data-theme="a" id="index_section"
   style="background: url('img/ilves13_taustakuva.png') no-repeat">
-      <div data-theme="a" data-role="header">
-          <h3>
-              Ilves13 The App
-          </h3>
-      </div>
+
       <div data-role="content">
           <div style="text-align: center;" data-controltype="image">
               <img style="width: 75%; max-width: 360px;" src="img/ilves_klappi.png">
           </div>
           <ul data-role="listview" data-divider-theme="b" data-inset="true">
               <li data-theme="c">
-                  <a href="#news_section" data-transition="slide">
+                  <a ontouchend="uusLeijeri('http://m.ilves13.dy.fi/appgyver/index.html#news_section')">
                       Uutiset
                   </a>
               </li>
               <li data-theme="c">
-                  <a href="#twitter_section" data-transition="slide">
+                  <a ontouchend="uusLeijeri('http://m.ilves13.dy.fi/appgyver/index.html#twitter_section')">
                       Twitter
                   </a>
               </li>
@@ -57,9 +65,6 @@
   </div>
   <div data-role="page" data-control-title="News" id="news_section" style="background: url('img/ilves13_taustakuva.png') no-repeat">
       <div data-theme="a" data-role="header" data-position="fixed">
-          <a data-role="button" data-transition="slide" href="#index_section" class="ui-btn-left">
-              Takaisin
-          </a>
           <h1></h1>
       </div>
       <div data-role="content">
@@ -82,14 +87,6 @@
 </div>
   
   <div data-role="page" data-control-title="twitter" id="twitter_section" style="background: url('img/ilves13_taustakuva.png') no-repeat">
-      <div data-theme="a" data-role="header" data-position="fixed">
-          <a data-role="button" data-transition="slide" href="#index_section" class="ui-btn-left">
-              Takaisin
-          </a>
-          <h3>
-              Ilves13 Twitter
-          </h3>
-      </div>
       <div data-role="content">
       	<div id="twitter-feed"></div>
       </div>
