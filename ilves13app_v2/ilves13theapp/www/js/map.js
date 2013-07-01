@@ -1,9 +1,15 @@
+
 var overlay;
+var map;
+var deviceReady = false;
 
 USGSOverlay.prototype = new google.maps.OverlayView();
 
+
 function initialize() {
+
   var myLatLng = new google.maps.LatLng(61.2035,25.12);
+  
   var mapOptions = {
 	zoom: 16,
 	center: myLatLng,
@@ -23,6 +29,7 @@ function initialize() {
   var srcImage = 'img/ilves13kartta_v3.png';
   overlay = new USGSOverlay(bounds, srcImage, map);
 }
+
 
 
 // markkerin lisäys
@@ -46,6 +53,7 @@ function addMarker(latLng){
   });
   console.log("Exiting addMarker()");
 }
+
 
 function USGSOverlay(bounds, image, map) {
 
@@ -119,20 +127,6 @@ USGSOverlay.prototype.onRemove = function() {
   this.div_ = null;
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
-// Wait for Cordova to load
-//
-document.addEventListener("deviceready", onDeviceReady, false);
-
-// Cordova is ready
-//
-function onDeviceReady() {
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
-}
-
 // onSuccess Geolocation
 //
 function onSuccess(position) {
@@ -148,35 +142,57 @@ function onSuccess(position) {
 						'Timestamp: '          + position.timestamp          + '<br />';
 
 */
-//var whereAmI = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-var missaLeiri = new google.maps.LatLng(61.2035,25.12);
-// addMarker(missaLeiri);
-// map.setCenter(whereAmI);
-// alert('Sijaintisi juuri ny: ' + position.coords.latitude + ', ' + position.coords.longitude );
+var whereAmI = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+// var missaLeiri = new google.maps.LatLng(61.2035,25.12);
+addMarker(whereAmI);
+map.setCenter(whereAmI);
+//alert('Sijaintisi juuri ny: ' + position.coords.latitude + ', ' + position.coords.longitude );
+//alert("getCurrentPosition ok");
 }
 
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-	// alert('code: '    + error.code    + '\n' +  'message: ' + error.message + '\n');
+	alert('getCurrentPosition error - code: '    + error.code    + '\n' +  'message: ' + error.message + '\n');
 }
+
+
+  	    
+function missaOlen() {
+	if (deviceReady) {
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+   		// var missaoon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+   		// alert('missaolen: ' + position.coords.latitude + ', ' + position.coords.longitude );
+   		// addMarker(missaoon);
+   		// map.setCenter(missaoon);
+   	} else {
+   		alert('GPS ei ole valmis =(');
+    }
+}
+
+// Cordova is ready
+function onDeviceReady() {
+	// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	deviceReady = true;
+	// alert('device is ready');
+}
+
+// Wait for Cordova to load
+document.addEventListener("deviceready", onDeviceReady, false);
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
 steroids.view.navigationBar.show("Leirikartta");
-  	    
-function missaOlen() {
-   var missaoon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-   alert('Sijaintisi juuri ny: ' + position.coords.latitude + ', ' + position.coords.longitude );
-   addMarker(missaoon);
-   map.setCenter(missaoon); 
-}
-
 var rightButton = new steroids.buttons.NavigationBarButton();
 rightButton.title = "Missä olen?";
-rightButton.onTap = function() {
-  missaOlen();
-};
-
+rightButton.onTap = function() { missaOlen(); };
 steroids.view.navigationBar.setButtons({right: [rightButton]});
+
+
+
+
+
+
+
 	
 
