@@ -20,7 +20,6 @@
   
   <script type="text/javascript" src="js/news.js"></script>
   <script type="text/javascript" src="js/twitterfeed.js"></script>
-  
 
   
   <!-- cordova.js is served from localhost to ensure the correct version -->
@@ -36,6 +35,13 @@
 	   steroids.view.navigationBar.show("Valikko");
 	}
 	
+	function getProgramAddress() {
+		var ikaryhma = window.localstroage.get("ikaryhma");
+		var alaleiri = window.localstroage.get("alaleiri");
+		if(ikaryhma == null || alaleiri == null) {
+			
+		}
+	}
     
   </script>
     
@@ -60,6 +66,11 @@
                       Twitter
                   </a>
               </li>
+	      <li data-theme="c">
+		  <a ontouchend="uusLeijeri('http://m.ilves13.dy.fi/appgyver/index.html#program_section')">
+		      Ohjelma ja ruokalista
+		  </a>
+	      </li>
           </ul>
       </div>
   </div>
@@ -91,6 +102,13 @@
       	<div id="twitter-feed"></div>
       </div>
   </div>
+
+<div data-role="page" data-control-title="program" id="program_section"
+style="background: url('img/ilves13_taustakuva.png') no-repeat">
+	<div data-role="content">
+		<div><p>Program</p></div>
+	</div>
+</div>
 
 </body>
 </html>
