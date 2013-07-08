@@ -50,7 +50,7 @@ steroids.config.tabBar.tabs = [
    {
      title: "Päävalikko"
      icon: "icons/list@2x.png"
-     location: "http://m.ilves13.dy.fi/appgyver/development-lauri/index.html"
+     location: "http://m.ilves13.dy.fi/appgyver/index.html"
    },
    {
      title: "Leirikartta"
