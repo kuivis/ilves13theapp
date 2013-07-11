@@ -48,6 +48,11 @@ steroids.config.tabBar.enabled = true
 #
 steroids.config.tabBar.tabs = [
    {
+     title: "Tervetuloa"
+     icon: "icons/ticket@2x.png"
+     location: "welcome.html"
+   },   
+   {
      title: "Päävalikko"
      icon: "icons/list@2x.png"
      location: "http://m.ilves13.dy.fi/appgyver/index.html"

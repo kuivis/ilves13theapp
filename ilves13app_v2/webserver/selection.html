@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
+  <title>Ilves13TheApp</title>
+  
+  <link rel="stylesheet" type="text/css" href="css/application.css" />
+  <link rel="stylesheet" type="text/css" href="css/twitter-styles.css" />
+  <link rel="stylesheet" type="text/css" href="js/jqm/jquery.mobile.css" />
+  
+  <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="js/jqm/jquery.mobile.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+  <!-- Nämä my.js ja index.js ovat mahdollisesti turhia.. tulleet Codiqan phonegap-paketin mukana -->
+  <script type="text/javascript" src="js/my.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+
+  
+  <!-- cordova.js is served from localhost to ensure the correct version -->
+  <script src="http://localhost/appgyver/cordova.js"></script>
+  <script src="http://localhost/components/steroids-js/steroids.js"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		var storage = window.localStorage;
+		
+		function updateViewer(){
+			var alaleiri = storage.getItem("alaleiri");
+			var ikaryhma = storage.getItem("ikaryhma");
+			if(alaleiri != null && ikaryhma != null){
+			    
+			    var nappi = $("<a data-theme='b' data-role='button' href='http://secure-mountain-4794.herokuapp.com/app/" + alaleiri + "/" + ikaryhma + "'>Siirry ohjelmaan</a>").button();
+				$("#button_place").append(nappi);
+			}
+		}
+		
+		$(document).ready(function(){
+			$("#alaleiri").change(function() {
+				var alaleiri =  $("#alaleiri").val();
+				storage.setItem("alaleiri", alaleiri);		
+				updateViewer();
+			});
+			$("#ikakausi").change(function() {
+				var ikakausi =  $("#ikakausi").val();
+				storage.setItem("ikaryhma", ikakausi);
+				updateViewer();
+			});
+			
+			updateViewer();
+		});
+    </script>
+</head>
+
+<body>
+<div data-role="page" data-control-title="Valinta" data-theme="a" id="valinta"
+  style="background: url('img/ilves13_taustakuva.png');">
+	    <p>
+		<select data-theme="c" id="alaleiri">
+			<option value=''>Valitse alaleirisi</option>
+			<option value='Risney'>Risney</option>
+			<option value='Warneri'>Warneri</option>
+			<option value='Foksi'>Foksi</option>
+			<option value='Paramauntti'>Paramauntti</option>
+			<option value='Universaali'>Universaali</option>
+		</select> 
+    	</p>
+	<p>
+		<select data-theme="c" id="ikakausi">
+			<option value=''>Valitse ik&auml;kautesi</option>
+			<option value='Tarpoja'>Tarpoja</option>
+			<option value='Seikkailija'>Seikkailija</option>
+			<option value='Vaeltaja'>Vaeltaja</option>
+		</select> 
+   	</p>
+	
+	<div id="button_place">
+	</div>
+</div>
+</body>
+</html>

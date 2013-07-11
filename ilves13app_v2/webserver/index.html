@@ -20,6 +20,7 @@
   
   <script type="text/javascript" src="js/news.js"></script>
   <script type="text/javascript" src="js/twitterfeed.js"></script>
+  
 
   
   <!-- cordova.js is served from localhost to ensure the correct version -->
@@ -35,13 +36,37 @@
 	   steroids.view.navigationBar.show("Valikko");
 	}
 	
-	function getProgramAddress() {
-		var ikaryhma = window.localstroage.get("ikaryhma");
-		var alaleiri = window.localstroage.get("alaleiri");
+	function moveToProgram() {
+		var ikaryhma = window.localStorage.getItem("ikaryhma");
+		var alaleiri = window.localStorage.getItem("alaleiri");
 		if(ikaryhma == null || alaleiri == null) {
-			
+			uusLeijeri('http://m.ilves13.dy.fi/appgyver/selection.html');
+		} else {			
+			uusLeijeri('http://secure-mountain-4794.herokuapp.com/app/' + alaleiri + '/' + ikaryhma);
 		}
 	}
+	
+	function updateButtonView() {
+		var alaleiri = window.localStorage.getItem("alaleiri");
+		var ikaryhma = window.localStorage.getItem("ikaryhma");
+		if(alaleiri != null || ikaryhma != null){
+		
+		   var nappi = $("<a data-mini='true' data-theme='c' data-role='button' id='clear_storage'>Tyhjennä</a>").button().click(function(){
+				window.localStorage.removeItem("alaleiri");
+				window.localStorage.removeItem("ikaryhma");
+				updateButtonView();
+			});
+		   
+            $("#storage_status").html("<p style='margin: 0; color: black;'>Alaleirisi: " + alaleiri + ", Ikäryhmäsi: " + ikaryhma + "</p>");
+			$("#storage_status").append(nappi);
+		} else {
+			$("#storage_status").html("");
+		}
+	}
+	
+	$(document).ready(function(){
+		document.addEventListener("visibilitychange", updateButtonView, false);		
+	});
     
   </script>
     
@@ -66,15 +91,17 @@
                       Twitter
                   </a>
               </li>
-	      <li data-theme="c">
-		  <a ontouchend="uusLeijeri('http://m.ilves13.dy.fi/appgyver/index.html#program_section')">
-		      Ohjelma ja ruokalista
-		  </a>
-	      </li>
+              <li data-theme="c">
+                  <a ontouchend="moveToProgram()">
+                      Ohjelma ja ruokalistat
+                  </a>
+              </li>
           </ul>
+		  
+	   <div id="storage_status" style="text-align: center;"></div>
       </div>
   </div>
-  <div data-role="page" data-control-title="News" id="news_section" style="background: url('img/ilves13_taustakuva.png') no-repeat">
+  <div data-role="page" data-control-title="News" id="news_section" style="background: url('img/ilves13_taustakuva.png');">
       <div data-theme="a" data-role="header" data-position="fixed">
           <h1></h1>
       </div>
@@ -97,18 +124,11 @@
         
 </div>
   
-  <div data-role="page" data-control-title="twitter" id="twitter_section" style="background: url('img/ilves13_taustakuva.png') no-repeat">
+  <div data-role="page" data-control-title="twitter" id="twitter_section" style="background: url('img/ilves13_taustakuva.png');">
       <div data-role="content">
       	<div id="twitter-feed"></div>
       </div>
   </div>
-
-<div data-role="page" data-control-title="program" id="program_section"
-style="background: url('img/ilves13_taustakuva.png') no-repeat">
-	<div data-role="content">
-		<div><p>Program</p></div>
-	</div>
-</div>
 
 </body>
 </html>
