@@ -36,6 +36,7 @@ body {
 }
 .twitter-pic {
     float:left;
+    width: 12%;
 }
  
 .twitter-pic img {
@@ -61,7 +62,7 @@ body {
 }
  
 .twitter-text {
-    width:90%;
+    width:85%;
     float:left;
     font-size:12px;
     padding-left: 11px;

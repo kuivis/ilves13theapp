@@ -14,16 +14,7 @@
   <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="js/jqm/jquery.mobile.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  
-  <!-- Nämä my.js ja index.js ovat mahdollisesti turhia.. tulleet Codiqan phonegap-paketin mukana -->
-  <script type="text/javascript" src="js/my.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-
-  
-  <!-- cordova.js is served from localhost to ensure the correct version -->
-  <script src="http://localhost/appgyver/cordova.js"></script>
-  <script src="http://localhost/components/steroids-js/steroids.js"></script>
-	
+  	
 	<script type="text/javascript" charset="utf-8">
 		var storage = window.localStorage;
 		
@@ -56,7 +47,15 @@
 
 <body>
 <div data-role="page" data-control-title="Valinta" data-theme="a" id="valinta"
-  style="background: url('http://localhost/img/ilves13_taustakuva.png');">
+  style="background: url('img/ilves13_taustakuva.png');">
+  
+  	  <div data-theme="a" data-role="header" data-position="fixed">
+          <a href="index.html#index_section" data-rel="back">Takaisin</a>
+          <h1>Valitse alaleiri ja ikäryhmä</h1>
+      </div>
+    
+      <div data-role="content">
+  
 	    <p>
 		<select data-theme="c" id="alaleiri">
 			<option value=''>Valitse alaleirisi</option>
@@ -67,7 +66,7 @@
 			<option value='Universaali'>Universaali</option>
 		</select> 
     	</p>
-	<p>
+		<p>
 		<select data-theme="c" id="ikakausi">
 			<option value=''>Valitse ik&auml;kautesi</option>
 			<option value='Sudenpentu'>Sudenpentu</option>
@@ -76,10 +75,10 @@
 			<option value='Tarpoja'>Tarpoja</option>
 			<option value='Vaeltaja'>Vaeltaja</option>
 		</select> 
-   	</p>
+   		</p>
 	
-	<div id="button_place">
-	</div>
+	<div id="button_place"></div>
+   </div>
 </div>
 </body>
 </html>
